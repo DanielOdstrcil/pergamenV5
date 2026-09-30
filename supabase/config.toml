@@ -1,0 +1,37 @@
+# Lokální databáze (Supabase v Dockeru). Spouští se příkazem: npm run db:setup
+project_id = "pergamen"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+
+[db]
+port = 54322
+major_version = 17
+
+[db.migrations]
+enabled = true
+
+[studio]
+enabled = true
+port = 54323
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000", "http://127.0.0.1:3000"]
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+# Registrace funguje hned, bez potvrzení e-mailem.
+enable_confirmations = false
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
